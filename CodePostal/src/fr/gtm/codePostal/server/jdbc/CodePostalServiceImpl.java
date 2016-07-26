@@ -13,6 +13,10 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import fr.gtm.codePostal.client.CodePostalService;
 
 public class CodePostalServiceImpl extends RemoteServiceServlet implements CodePostalService {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	DataSource ds;
 	
 	@Override

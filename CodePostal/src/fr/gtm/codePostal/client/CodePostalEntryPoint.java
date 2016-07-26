@@ -6,6 +6,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import fr.gtm.codePostal.CodePostal;
 
 public class CodePostalEntryPoint implements EntryPoint {
+	
 
 	@Override
 	public void onModuleLoad() {

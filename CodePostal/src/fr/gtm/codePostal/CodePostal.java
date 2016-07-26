@@ -1,20 +1,29 @@
 package fr.gtm.codePostal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 
+import fr.gtm.codePostal.client.CodePostalService;
+import fr.gtm.codePostal.client.CodePostalServiceAsync;
+import fr.gtm.codePostal.server.jdbc.CodePostalServiceImpl;
+import fr.gtm.codePostal.server.jdbc.Ville;
+
 public class CodePostal extends Composite {
 
 	private static CodePostalUiBinder uiBinder = GWT.create(CodePostalUiBinder.class);
-
+	private static CodePostalServiceAsync service = GWT.create(CodePostalService.class);
 	interface CodePostalUiBinder extends UiBinder<Widget, CodePostal> {
 	}
 
@@ -39,7 +48,26 @@ public class CodePostal extends Composite {
 	@UiHandler("button")
 	void onClick(ClickEvent e) {
 		String code = cp.getText();
+		service.getVillesByCodePostal(code, new AsyncCallback<List<Ville>>() {
+			
+			@Override
+			public void onSuccess(List<Ville> result) {
+	
+				for(int i=0; i<result.size();i++){
+					resultat.setText(result.get(i).getNom());
+				}				
+			}
+			
+			@Override
+			public void onFailure(Throwable caught) {
+					GWT.log("error");				
+			}
+		});
 		
-	}
+		
+			
+		}
+		
+
 
 }
