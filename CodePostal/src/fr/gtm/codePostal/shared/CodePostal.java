@@ -12,6 +12,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
@@ -39,7 +40,7 @@ public class CodePostal extends Composite {
 	TextBox cp;
 	
 	@UiField
-	TextArea resultat;
+	FlexTable resultat;
 
 	public CodePostal(String firstName) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -53,12 +54,14 @@ public class CodePostal extends Composite {
 			
 			@Override
 			public void onSuccess(List<Ville> result) {
-				String str = new String();
+				int row = 1;
+				resultat.removeAllRows();
 				for(Ville ville:result){
-					 str += ville.getNom();
-				}				
-				resultat.setText(str);
-				Window.alert(str);
+					 resultat.setText(row, 0, ville.getNom());
+					 row++;
+				}	
+				row=1;
+
 			}
 			
 			@Override
