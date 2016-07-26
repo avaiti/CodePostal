@@ -3,5 +3,7 @@
 <module rename-to="CodePostal">
 	<inherits name="com.google.gwt.user.User" />
 	<source path="client" />
+	<source path="shared" />
+	<source path="server" />
 	<entry-point class="fr.gtm.codePostal.client.CodePostalEntryPoint" />
 </module>

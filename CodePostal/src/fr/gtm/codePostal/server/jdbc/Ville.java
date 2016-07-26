@@ -1,6 +1,8 @@
 package fr.gtm.codePostal.server.jdbc;
 
-public class Ville {
+import java.io.Serializable;
+
+public class Ville implements Serializable {
 	
 	private long id;
 	private String nom;

@@ -18,6 +18,7 @@ public class CodePostalServiceImpl extends RemoteServiceServlet implements CodeP
 	 */
 	private static final long serialVersionUID = 1L;
 	DataSource ds;
+	VilleDAO villeDAO = null;
 	
 	@Override
 	public List<Ville> getVillesByCodePostal(String cp) {
@@ -25,13 +26,10 @@ public class CodePostalServiceImpl extends RemoteServiceServlet implements CodeP
 		try {
 			if(ds == null){
 				Context ctx = new InitialContext();
-				ds = (DataSource) ctx.lookup("jdbc/france");
-				
-				VilleDAO villeDAO = new VilleDAO(ds);
-				
-				villes = villeDAO.getVillesByCodePostal(cp);
-				
+				ds = (DataSource) ctx.lookup("jdbc/france");	
+				villeDAO = new VilleDAO(ds);
 			}
+			villes = villeDAO.getVillesByCodePostal(cp);
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
