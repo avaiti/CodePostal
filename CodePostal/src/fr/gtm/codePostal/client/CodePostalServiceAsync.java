@@ -9,5 +9,4 @@ import fr.gtm.codePostal.server.jdbc.Ville;
 public interface CodePostalServiceAsync {
 
 	void getVillesByCodePostal(String cp, AsyncCallback<List<Ville>> callback);
-//toto
 }

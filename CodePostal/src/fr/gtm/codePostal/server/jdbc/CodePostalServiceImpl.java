@@ -10,7 +10,6 @@ public class CodePostalServiceImpl extends RemoteServiceServlet implements CodeP
 
 	@Override
 	public List<Ville> getVillesByCodePostal(String cp) {
-		//toto
 		return null;
 	}
 

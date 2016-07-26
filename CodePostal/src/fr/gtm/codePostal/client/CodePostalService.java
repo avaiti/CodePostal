@@ -9,6 +9,5 @@ import fr.gtm.codePostal.server.jdbc.Ville;
 
 @RemoteServiceRelativePath("CodePostalService")
 public interface CodePostalService extends RemoteService {
-	//toto
 	List<Ville> getVillesByCodePostal(String cp);
 }
