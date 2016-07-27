@@ -8,7 +8,7 @@
 	</ui:style>
 	<g:HTMLPanel>
 	inserer le code postal à chercher : <g:TextBox ui:field = "cp"/>
-	<g:Button styleName="{style.important}" ui:field="button" >rechercher</g:Button><br/>
+<!-- 	<g:Button styleName="{style.important}" ui:field="button" >rechercher</g:Button><br/> -->
 	<g:FlexTable ui:field="resultat"></g:FlexTable>>
 	</g:HTMLPanel>
 </ui:UiBinder> 
